@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             }
         );
 
+        /** Login Functionality */
+
         loginBtn.setOnClickListener(
                 v->{
 
@@ -73,5 +75,31 @@ public class MainActivity extends AppCompatActivity {
 
                 }
         );
+
+        /** Register Functionality */
+
+        registerBtn.setOnClickListener(
+                v->{
+                    String usernameValue = username.getText().toString();
+                    String passwordValue = password.getText().toString();
+                    String confirmPasswordValue = confirmPassword.getText().toString();
+                    String emailValue = email.getText().toString();
+                    if(usernameValue.isEmpty() || passwordValue.isEmpty() || confirmPasswordValue.isEmpty() || emailValue.isEmpty()){
+                        Toast.makeText(this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
+//                        Snackbar.make(root, "Please fill all the fields!", Snackbar.LENGTH_SHORT)
+//                                .setAction()
+
+                    }else{
+                        if(passwordValue.equals(confirmPasswordValue) == false){
+                            Toast.makeText(this, "Confirm password should match!", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(this, "You are successfully registered!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }
+        );
+
     }
 }
